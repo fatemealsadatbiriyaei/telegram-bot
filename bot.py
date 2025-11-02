@@ -70,10 +70,9 @@ if __name__ == "__main__":
     if not RENDER_URL:
         raise RuntimeError("RENDER_EXTERNAL_URL environment variable is not set")
 
-   app.run_webhook(
-    listen="0.0.0.0",
-    port=PORT,
-    url_path=BOT_TOKEN,  # فقط خود توکن
-    webhook_url=f"{RENDER_URL}/{BOT_TOKEN}"  # بدون /webhook/
-)
-
+    app.run_webhook(
+        listen="0.0.0.0",
+        port=PORT,
+        url_path=BOT_TOKEN,  # مسیر وبهوک با توکن
+        webhook_url=f"https://{RENDER_URL}/{BOT_TOKEN}"  # URL کامل وبهوک
+    )
